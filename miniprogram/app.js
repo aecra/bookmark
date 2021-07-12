@@ -2,6 +2,13 @@
 App({
   globalData: {
     openid: '',
+    hasConfig: false,
+    config: {
+      webdavurl: '',
+      username: '',
+      password: '',
+      path: ''
+    }
   },
   onLaunch: function () {
     if (!wx.cloud) {
@@ -17,6 +24,39 @@ App({
       name: 'login'
     }).then(data => {
       this.globalData.openid = data.result.openid;
+      this.getConfig();
     });
+  },
+  getConfig() {
+    const db = wx.cloud.database();
+    db.collection('config').where({ _openid: this.globalData.openid }).get({
+      success: res => {
+        if (res.data.length != 0) {
+          this.globalData.hasConfig = true;
+          this.globalData.config = res.data[0].config;
+        };
+      }
+    })
+  },
+  setConfig(config) {
+    this.globalData.hasConfig = true;
+    this.globalData.config = config;
+    const db = wx.cloud.database();
+    db.collection('config').add({
+      data: {
+        config: this.globalData.config
+      }
+    })
+  },
+  updateConfig(config) {
+    this.globalData.config = config;
+    const db = wx.cloud.database();
+    db.collection('config').where({
+      _openid: this.globalData.openid
+    }).update({
+      data: {
+        config: this.globalData.config
+      }
+    })
   }
 })
