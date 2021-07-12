@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-console": 0, // 允许在代码中保留 console 命令
+    "import/no-unresolved": [2, { "wx-server-sdk": false }]
+  },
+  "globals": {
+    "wx": true,
+    "App": true,
+    "Page": true,
+    "getApp": true,
+    "Component": true
+  }
+}

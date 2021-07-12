@@ -1,0 +1,22 @@
+{
+  "name": "bookmark",
+  "version": "1.0.0",
+  "description": "bookmark",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint miniprogram/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aecra/bookmark.git"
+  },
+  "author": "aecra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aecra/bookmark/issues"
+  },
+  "homepage": "https://github.com/aecra/bookmark#readme",
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.2.1"
+  }
+}
