@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/myself/myself"
+  ],
+  "entryPagePath": "pages/index/index",
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "网络书签",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "主页",
+      "iconPath": "./images/index.png",
+      "selectedIconPath": "./images/index-selected.png"
+    }, {
+      "pagePath": "pages/myself/myself",
+      "text": "我的",
+      "iconPath": "./images/myself.png",
+      "selectedIconPath": "./images/myself-selected.png"
+    }],
+    "selectedColor": "#1296db"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
