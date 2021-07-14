@@ -2,12 +2,17 @@
 App({
   globalData: {
     openid: '',
-    hasConfig: false,
     config: {
       webdavurl: '',
       username: '',
       password: '',
       path: '',
+    },
+    defaultConfig: {
+      webdavurl: 'https://example.com/dav/',
+      username: 'username',
+      password: 'password',
+      path: 'path/bookmarks.xbel',
     },
   },
   onLaunch() {
@@ -34,14 +39,16 @@ App({
     }).get({
       success: (res) => {
         if (res.data.length !== 0) {
-          this.globalData.hasConfig = true;
           this.globalData.config = res.data[0].config;
+        } else {
+          // 数据库中无数据、设置数据的默认值
+          this.globalData.config = this.globalData.defaultConfig;
+          this.setConfig(this.globalData.defaultConfig);
         }
       },
     });
   },
   setConfig(config) {
-    this.globalData.hasConfig = true;
     this.globalData.config = config;
     const db = wx.cloud.database();
     db.collection('config').add({
@@ -51,14 +58,20 @@ App({
     });
   },
   updateConfig(config) {
-    this.globalData.config = config;
-    const db = wx.cloud.database();
-    db.collection('config').where({
-      _openid: this.globalData.openid,
-    }).update({
-      data: {
-        config: this.globalData.config,
-      },
+    // 返回 Promise，记录状态改变信息
+    return new Promise((resolved) => {
+      this.globalData.config = config;
+      const db = wx.cloud.database();
+      db.collection('config').where({
+        _openid: this.globalData.openid,
+      }).update({
+        data: {
+          config: this.globalData.config,
+        },
+        success: (res) => {
+          resolved(res);
+        },
+      });
     });
   },
 });

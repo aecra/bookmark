@@ -2,7 +2,7 @@
   "extends": "airbnb",
   "rules": {
     "no-console": 0, // 允许在代码中保留 console 命令
-    "import/no-unresolved": [2, { "wx-server-sdk": false }]
+    "import/no-unresolved": 0
   },
   "globals": {
     "wx": true,

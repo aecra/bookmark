@@ -1,0 +1,16 @@
+<!--components/config-box/config-box.wxml-->
+<item-box>
+  <view class="container">
+    <view class="left">
+      <view class="title">
+        {{title}}
+      </view>
+      <view class="content">
+        {{content}}
+      </view>
+    </view>
+    <view class="right">
+      <image class="right-point" src="../../images/right-point.png"></image>
+    </view>
+  </view>
+</item-box>

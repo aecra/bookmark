@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "item-box": "../item-box/item-box",
+    "click-to-copy": "../click-to-copy/click-to-copy"
+  }
+}

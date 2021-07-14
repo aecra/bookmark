@@ -1,0 +1,14 @@
+<!--components/config-change/config-change.wxml-->
+<popup show="{{show}}">
+  <view class="content">
+    <view class="title">
+     {{title[kind]}}
+    </view>
+    <view class="input-box">
+      <input class="input" type="text" placeholder="{{title[kind]}}" model:value="{{tmpValue}}" bindinput="inputCheck"/>
+    </view>
+    <view>
+      <button class="{{button}}" hover-class="hover-button" bindtap="confirmChange">确认修改</button>
+    </view>
+  </view>
+</popup>

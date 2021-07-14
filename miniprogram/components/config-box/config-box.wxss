@@ -1,0 +1,32 @@
+/* components/config-box/config-box.wxss */
+.container {
+  display: flex;
+}
+
+.title {
+  font-size: 14pt;
+  line-height: 70rpx;
+  height: 70rpx;
+}
+
+.content {
+  font-size: 12pt;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 50rpx;
+  height: 50rpx;
+}
+
+.left {
+  flex-grow: 1;
+  margin-left: 10rpx;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.right .right-point {
+  width: 30rpx;
+  height: 30rpx;
+}

@@ -1,0 +1,8 @@
+<!--components/feedback-box/feedback-box.wxml-->
+<item-box>
+  <click-to-copy data="{{email}}">
+    <view class="feedback-box">
+      问题反馈：{{email}}
+    </view>
+  </click-to-copy>
+</item-box>

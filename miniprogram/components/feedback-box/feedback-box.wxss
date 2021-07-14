@@ -1,0 +1,6 @@
+/* components/feedback-box/feedback-box.wxss */
+.feedback-box {
+  font-size: 12pt;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}

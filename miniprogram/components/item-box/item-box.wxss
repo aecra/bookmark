@@ -1,0 +1,7 @@
+/* components/item-box/item-box.wxss */
+.itembox {
+  background-color: #fff;
+  border-radius: 30rpx;
+  margin: 20rpx 20rpx;
+  padding: 20rpx;
+}

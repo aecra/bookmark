@@ -1,0 +1,43 @@
+/* components/config-change/config-change.wxss */
+.content {
+  background-color: #fff;
+  border-radius: 30rpx;
+  margin: 40rpx;
+  padding: 50rpx 20rpx;
+  width: 670rpx;
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 15pt;
+}
+
+.input-box {
+  margin: 40rpx 0 60rpx 0;
+  padding: 0 20rpx;
+}
+
+.input {
+  border-bottom: solid rgba(0, 0, 0, 0.1) 1rpx;
+}
+
+.input:hover {
+  border-bottom: solid #1296db 1rpx;
+}
+
+.button {
+  color: #fff;
+  background-color: #1296db;
+}
+
+.banbutton {
+  color: #fff;
+  background-color: #85d4ff;
+}
+
+.hover-button {
+  background-color: #1081be;
+}
+

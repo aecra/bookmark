@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    openid: '',
+    config: {
+      webdavurl: '',
+      username: '',
+      password: '',
+      path: '',
+    },
+    configShow: false,
+    configKind: 'webdavurl',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-
+    this.initData();
   },
 
   /**
@@ -47,7 +55,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.initData();
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -62,5 +71,24 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  initData() {
+    const app = getApp();
+    this.setData({
+      openid: app.globalData.openid,
+      config: app.globalData.config,
+    });
+    if (this.data.config.webdavurl === '') {
+      setTimeout(() => { this.initData(); }, 200);
+    }
+  },
+
+  raiseConfig(e) {
+    const { kind } = e.target.dataset;
+    this.setData({
+      configShow: true,
+      configKind: kind,
+    });
   },
 });

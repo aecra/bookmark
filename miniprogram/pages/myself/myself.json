@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "brief-box": "../../components/brief-box/brief-box",
+    "config-box": "../../components/config-box/config-box",
+    "feedback-box": "../../components/feedback-box/feedback-box",
+    "config-change": "../../components/config-change/config-change"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

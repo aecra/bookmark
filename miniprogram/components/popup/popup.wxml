@@ -1,0 +1,6 @@
+<!--components/popup/popup.wxml-->
+<view wx:if="{{show}}" class="popup" bindtap="changeShowState">
+  <view catchtap="preventBubbling">
+    <slot></slot>
+  </view>
+</view>
