@@ -5,14 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    openid: '',
+    config: {
+      webdavurl: '',
+      username: '',
+      password: '',
+      path: '',
+    },
+    xbel: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-
+    this.initData();
   },
 
   /**
@@ -62,5 +69,47 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  initData() {
+    const app = getApp();
+    this.setData({
+      openid: app.globalData.openid,
+      config: app.globalData.config,
+    });
+    if (this.data.config.webdavurl === '') {
+      setTimeout(() => { this.initData(); }, 200);
+    } else {
+      this.getXbel();
+    }
+  },
+
+  ab2str(input, outputEncoding = 'utf8') {
+    const decoder = new TextDecoder(outputEncoding);
+    return decoder.decode(input);
+  },
+
+  getXbel() {
+    wx.cloud.callFunction({
+      name: 'getfile',
+      data: {
+        webdavurl: this.data.config.webdavurl,
+        username: this.data.config.username,
+        password: this.data.config.password,
+        path: this.data.config.path,
+        type: 'file',
+      },
+    }).then((data) => {
+      wx.cloud.callFunction({
+        name: 'convert-bookmark',
+        data: {
+          xbel: this.ab2str(data.result.buff),
+        },
+      }).then((bookmark) => {
+        this.setData({
+          xbel: bookmark.result.bookmark.xbel,
+        });
+      });
+    });
   },
 });
