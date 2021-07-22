@@ -18,6 +18,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    updatebookmarks() {
+      const bookmarks = {};
+      if (this.properties.content.bookmark !== undefined) {
+        bookmarks.bookmark = this.properties.content.bookmark;
+      }
+      if (this.properties.content.folder !== undefined) {
+        bookmarks.folder = this.properties.content.folder;
+      }
+      this.triggerEvent('updatebookmarks', bookmarks, {});
+    },
   },
 });

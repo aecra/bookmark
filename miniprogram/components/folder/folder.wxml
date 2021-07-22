@@ -4,6 +4,6 @@
     <view class="kind-icon">
       <image class="icon" src="../../images/folder.png"></image>
     </view>
-    <view class="content">{{content.title}}</view>
+    <view class="content" bindtap="updatebookmarks">{{content.title}}</view>
   </view>
 </item-box>
