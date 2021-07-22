@@ -1,0 +1,11 @@
+<!--components/bookmark/bookmark.wxml-->
+<item-box>
+  <view class="bookmark">
+    <view class="kind-icon">
+      <image class="icon" src="../../images/bookmark.png"></image>
+    </view>
+    <click-to-copy class="content" data="{{content.$.href}}">
+      <scroll-view scroll-x show-scrollbar="false" enhanced>{{content.title}}</scroll-view>
+    </click-to-copy>
+  </view>
+</item-box>

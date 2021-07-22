@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "bookmark": "../bookmark/bookmark",
+    "folder": "../folder/folder"
+  }
+}

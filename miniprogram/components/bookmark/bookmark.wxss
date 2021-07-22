@@ -1,0 +1,19 @@
+/* components/bookmark/bookmark.wxss */
+.bookmark {
+  display: flex;
+  align-items: center;
+}
+
+.kind-icon, .copy-icon {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+}
