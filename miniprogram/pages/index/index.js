@@ -91,25 +91,19 @@ Page({
 
   getXbel() {
     wx.cloud.callFunction({
-      name: 'getfile',
+      name: 'getxbel',
       data: {
         webdavurl: this.data.config.webdavurl,
         username: this.data.config.username,
         password: this.data.config.password,
         path: this.data.config.path,
-        type: 'file',
       },
     }).then((data) => {
-      wx.cloud.callFunction({
-        name: 'convert-bookmark',
-        data: {
-          xbel: this.ab2str(data.result.buff),
-        },
-      }).then((bookmark) => {
-        this.setData({
-          xbel: bookmark.result.bookmark.xbel,
-        });
+      this.setData({
+        xbel: data.result.xbel,
       });
+    }).catch((e) => {
+      console.log('e: ', e);
     });
   },
 });
