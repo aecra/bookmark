@@ -84,11 +84,6 @@ Page({
     }
   },
 
-  ab2str(input, outputEncoding = 'utf8') {
-    const decoder = new TextDecoder(outputEncoding);
-    return decoder.decode(input);
-  },
-
   getXbel() {
     wx.cloud.callFunction({
       name: 'getxbel',
