@@ -1,1 +1,13 @@
 /* miniprogram/pages/index/index.wxss */
+.swiper {
+  width: 710rpx;
+  height: 399rpx;
+  margin: 20rpx;
+  border-radius: 30rpx;
+  overflow: hidden;
+}
+
+.swiper-image {
+  width: 710rpx;
+  height: 399rpx;
+}

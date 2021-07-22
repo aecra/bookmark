@@ -1,4 +1,12 @@
 <!--miniprogram/pages/index/index.wxml-->
 <view>
+  <swiper class="swiper" autoplay circular>
+      <swiper-item>
+        <image class="swiper-image" src="../../images/swiper.png"></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="swiper-image" src="../../images/swiper.png"></image>
+      </swiper-item>
+    </swiper>
   <bookmarks content='{{xbel}}'></bookmarks>
 </view>
