@@ -6,6 +6,6 @@
 <config-box title="密码" content="{{config.password}}" bindtap="raiseConfig" data-kind="password"></config-box>
 <config-box title="路径" content="{{config.path}}" bindtap="raiseConfig" data-kind="path"></config-box>
 
-<feedback-box email="aecra_bookmark@126.com"></feedback-box>
+<feedback-box email="bookmark@aecra.cn"></feedback-box>
 
 <config-change kind="{{configKind}}" config="{{config}}" show="{{configShow}}"></config-change>
