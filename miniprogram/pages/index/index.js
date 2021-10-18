@@ -95,9 +95,13 @@ Page({
         path: this.data.config.path,
       },
     }).then((data) => {
-      this.setData({
-        xbel: data.result.xbel,
-      });
+      if (data.result.error !== undefined) {
+        console.log(data.result.error);
+      } else {
+        this.setData({
+          xbel: data.result.xbel,
+        });
+      }
     }).catch((e) => {
       console.log('e: ', e);
     });
