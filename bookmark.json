@@ -1,0 +1,18 @@
+{
+  "$": { "version": "1.0" },
+  "bookmark": [
+    { "$": { "href": "https://www.52pojie.cn/", "id": "1" }, "title": ["吾爱破解"] },
+    {
+      "$": { "href": "https://www.teambition.com/organization/605200ec5b6054308d07b0ad", "id": "160" },
+      "title": ["Teambition · 阿里巴巴工作学习套件"]
+    },
+    { "$": { "href": "https://www.aliyundrive.com/drive", "id": "168" }, "title": ["阿里云盘"] }
+  ],
+  "folder": [
+    {
+      "$": { "id": "184" },
+      "title": ["文献查询"],
+      "bookmark": [{ "$": { "href": "http://www.ncpssd.org/", "id": "185" }, "title": ["国家哲学社会科学文献中心"] }]
+    }
+  ]
+}
