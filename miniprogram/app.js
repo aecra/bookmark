@@ -13,10 +13,10 @@ App({
       path: '',
     },
     defaultConfig: {
-      webdavurl: 'https://example.com/dav/',
+      webdavurl: 'https://dav.jianguoyun.com/dav/',
       username: 'username',
       password: 'password',
-      path: 'path/bookmarks.xbel',
+      path: '收藏夹/bookmarks.xbel',
     },
   },
   onLaunch() {
