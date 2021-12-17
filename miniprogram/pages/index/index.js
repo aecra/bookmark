@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openid: '',
     config: {
       webdavurl: '',
       username: '',
@@ -73,16 +72,12 @@ Page({
   },
 
   initData() {
-    const app = getApp();
-    this.setData({
-      openid: app.globalData.openid,
-      config: app.globalData.config,
-    });
-    if (this.data.config.webdavurl === '') {
-      setTimeout(() => { this.initData(); }, 200);
-    } else {
+    wx.event.on('config', (data) => {
+      this.setData({
+        config: data,
+      });
       this.getXbel();
-    }
+    });
   },
 
   getXbel() {

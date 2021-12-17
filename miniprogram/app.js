@@ -1,4 +1,8 @@
 // app.js
+import Event from 'utils/event';
+
+wx.event = new Event();
+
 App({
   globalData: {
     openid: '',
@@ -40,6 +44,7 @@ App({
       success: (res) => {
         if (res.data.length !== 0) {
           this.globalData.config = res.data[0].config;
+          wx.event.emit('config', this.globalData.config);
         } else {
           // 数据库中无数据、设置数据的默认值
           this.globalData.config = this.globalData.defaultConfig;
