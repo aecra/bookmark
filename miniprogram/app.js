@@ -62,21 +62,4 @@ App({
       },
     });
   },
-  updateConfig(config) {
-    // 返回 Promise，记录状态改变信息
-    return new Promise((resolved) => {
-      this.globalData.config = config;
-      const db = wx.cloud.database();
-      db.collection('config').where({
-        _openid: this.globalData.openid,
-      }).update({
-        data: {
-          config: this.globalData.config,
-        },
-        success: (res) => {
-          resolved(res);
-        },
-      });
-    });
-  },
 });

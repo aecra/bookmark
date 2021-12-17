@@ -62,22 +62,24 @@ Component({
       if (this.data.button === 'banbutton') {
         return;
       }
-      const app = getApp();
       const tmpConfig = { ...this.properties.config };
       tmpConfig[this.properties.kind] = this.data.tmpValue;
-      app.updateConfig(tmpConfig).then(() => {
-        this.setData({
-          show: !this.properties.show,
+      wx.cloud.callFunction({
+        name: 'updateConfig',
+        data: {
           config: tmpConfig,
-        });
-        // 注意！
-        // 此条语句解决的问题是config-change组件中修改了config
-        // 而myself页面中组件config-box使用的是config.属性
-        // 上一条语句的修改并不能使的组件config-box的数据动态修改
-        // 所以添加此条语句，用于重新加载页面数据
-        // 解决方法可能需要研究双向数据绑定和组件间传递数据的实现原理
-        // eslint-disable-next-line no-undef
-        getCurrentPages()[0].initData();
+        },
+      }).then((data) => {
+        if (data.result.error !== '') {
+          wx.event.emit('config', tmpConfig);
+          this.setData({
+            show: !this.properties.show,
+          });
+        } else {
+          console.log(data.result.error);
+        }
+      }).catch((e) => {
+        console.log('e: ', e);
       });
     },
   },
